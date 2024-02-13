@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:shoooooping_provider_app/shoooooping_app.dart';
+import 'package:provider/provider.dart';
+import 'common/presentation/shoooooping_product_provider.dart';
+import 'shoooooping_app.dart';
 
 void main() {
   runApp(
-    const MaterialApp(home: ShooooopingApp()),
+    MultiProvider(
+      providers: [
+        Provider(create: (_) => const ProductProvider()),
+      ],
+      child: const MaterialApp(
+        home: ShooooopingApp(),
+      ),
+    ),
   );
 }
